@@ -192,3 +192,5 @@ pyrightconfig.json
 
 artifacts
 .tmp
+logs.txt
+*.log
