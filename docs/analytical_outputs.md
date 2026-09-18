@@ -1,34 +1,30 @@
-# Analytical Outputs & Artifacts
+# Analytical Outputs
 
-Summary of all generated data artifacts and analytical results in `data/analytical/`.
+Summary of generated datasets and analytical results stored in `data/analytical/`.
 
----
+## Key findings
 
-## 1. Primary Empirical Findings
+1. The clean dataset contains 10,002 deduplicated freelancer profiles with 350,811 skill links across 3,195 skills.
+2. The top 10% earnings tier starts at $79,497.80.
+3. Out of 428,795 evaluated skill pairs and triples, 404,773 combinations show statistically significant association with earnings tier ($p_{\text{adj}} < 0.05$) after Benjamini-Hochberg FDR correction.
+4. Louvain community detection partitions the skill co-occurrence graph (modularity 0.163) into 3 functional clusters: Design and Creative, Web and Fullstack Engineering, and Data and Systems Engineering.
+5. Skills with high betweenness relative to degree act as bridges connecting separate technical disciplines.
+6. High-earning profiles feature terms centered on system architecture, optimization, and project delivery rather than generic task listings.
 
-1. **Total Cataloged Profiles**: 10,002 deduplicated freelancer profiles with 350,811 skill associations across 3,195 unique skills.
-2. **High-Earner Threshold**: Top 10% (90th percentile) lifetime earnings begins at **$79,497.80 USD**.
-3. **Skill Combinations Mined**: Over 428,000 frequent pairs and triples evaluated with full Benjamini-Hochberg FDR correction. Over 404,000 combinations demonstrate statistically significant association with earnings tier ($p_{\text{adj}} < 0.05$).
-4. **Network Topology**: Modularity score of 0.163 partitioned into 3 major functional skill communities (Design/Creative, Fullstack/Web Architecture, and Data/Systems Engineering).
-5. **Bridge Skills**: Skills with the highest betweenness-to-degree ratio (connecting disparate communities) include specialized architecture integrations, API systems, and cross-platform tools.
-6. **Language Markers**: High-earning profiles feature terms emphasizing structural ownership, optimization, scalable architecture, and end-to-end delivery over generic task lists.
+## Artifacts catalog
 
----
-
-## 2. Artifacts Catalog
-
-| File | Format | Key Contents |
+| File | Format | Contents |
 |---|---|---|
-| `overview_metrics.json` | JSON | Dataset-wide totals, medians, means, rates |
-| `earnings_distribution.parquet` | Parquet | User-level earnings, log earnings, rates, review counts |
-| `skill_statistics.parquet` | Parquet | 1,859 individual skills with frequency, prevalence, median earnings, high-earner rate |
-| `skill_combinations.parquet` | Parquet | 428k+ pairs/triples with Support, Lift, Odds Ratio, 95% CI, p-value, FDR adjusted p-value |
-| `combination_regression.json` | JSON | Controlled logit & OLS regression coefficients controlling for skill count, reviews, and country |
+| `overview_metrics.json` | JSON | Overall dataset totals, medians, means, and rates |
+| `earnings_distribution.parquet` | Parquet | Individual earnings, log earnings, rates, and review counts |
+| `skill_statistics.parquet` | Parquet | 1,859 individual skills with frequency, prevalence, median earnings, and high-earner rates |
+| `skill_combinations.parquet` | Parquet | 428k+ pairs and triples with support, lift, odds ratios, 95% CIs, and FDR adjusted p-values |
+| `combination_regression.json` | JSON | Controlled logit and OLS regression coefficients adjusting for skill count, reviews, and country |
 | `network_nodes.parquet` | Parquet | 150 top nodes with degree, betweenness, closeness, bridge score, and 2D layout coordinates |
 | `network_edges.parquet` | Parquet | 11,147 weighted co-occurrence edges |
-| `network_communities.parquet` | Parquet | Community-level aggregates and top skills per cluster |
-| `text_terms.parquet` | Parquet | 4,000 TF-IDF unigrams/bigrams with differential prominence scores |
+| `network_communities.parquet` | Parquet | Community aggregates and prominent skills per cluster |
+| `text_terms.parquet` | Parquet | 4,000 TF-IDF unigrams and bigrams with differential prominence scores |
 | `topics.parquet` | Parquet | 8 LDA topic models with top keywords and earnings breakdown |
-| `geographic_statistics.parquet` | Parquet | 59 country profiles with top localized skills and high-earner rates |
+| `geographic_statistics.parquet` | Parquet | 59 country profiles with localized skills and high-earner rates |
 | `city_statistics.parquet` | Parquet | 262 metropolitan city summaries |
-| `integrated_insights.json` | JSON | Master executive summary and key strategic findings |
+| `integrated_insights.json` | JSON | Summary artifact combining core results |

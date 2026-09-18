@@ -1,129 +1,122 @@
 # Skill Bundles and Freelancer Earnings
 
-> An end-to-end reproducible analytical pipeline and interactive multi-page Dash application investigating **which combinations of freelancer-selected skills are disproportionately associated with high-earning freelancers**.
+Analysis pipeline and multi-page Dash application examining which combinations of freelancer skills associate with top-tier earnings.
 
----
+## Key findings
 
-## 🚀 Key Highlights & Findings
+- The dataset contains 10,002 deduplicated freelancer profiles with 350,811 skill links across 3,195 skills.
+- The 90th percentile platform earnings threshold is $79,497.80.
+- Out of 428,795 evaluated skill pairs and triples, 404,773 combinations show statistically significant earnings associations after Benjamini-Hochberg FDR correction.
+- Multivariable logistic and OLS regressions confirm these bundle premiums hold after controlling for total skill count, review volume, and country fixed effects.
+- Louvain community detection partitions the co-occurrence network into 3 functional clusters (Design, Web Engineering, Systems/Backend).
+- High-earning profiles use terms focused on architecture, scalability, and delivery rather than basic task lists.
 
-- **Dataset Scale**: Analyzed 10,002 deduplicated freelancer profiles with 350,811 skill links across 3,195 unique skills. Designed for scalability up to 3M+ records under 16GB RAM constraints using columnar Parquet and vectorized sparse operations.
-- **High-Earner Threshold (90th Percentile)**: Defined at **$79,497.80 USD** lifetime platform earnings.
-- **Skill Combination Synergies**: Evaluated over 428,000 candidate skill pairs and triples using support, lift, Haldane-Anscombe Odds Ratios, 95% confidence intervals, Chi-square tests, and Benjamini-Hochberg FDR correction.
-- **Econometric Controls**: Validated bundle associations using multivariable logistic regression and OLS log-earnings models controlling for skill count, review volume, and country fixed effects.
-- **Skill Topology & Communities**: Modeled network co-occurrences with Louvain community detection (3 major functional clusters) and identified critical bridge skills.
-- **Language Patterns & LDA**: Uncovered high-earner differential vocabulary (TF-IDF log-odds) and trained an 8-topic Latent Dirichlet Allocation (LDA) model.
+## Tech stack
 
----
+- Data processing: Python 3.12, DuckDB, Apache Parquet, PyArrow, Pandas, NumPy, Scipy
+- Statistics and NLP: Scikit-learn, Statsmodels
+- Network analysis: NetworkX, python-louvain
+- Visualization: Dash, Dash Bootstrap Components, Plotly
+- Testing and environment: Pytest, uv, just
 
-## 🛠 Tech Stack
+## Quickstart
 
-- **Data Processing & Storage**: Python 3.12, DuckDB, Apache Parquet, PyArrow, Pandas, NumPy, Scipy Sparse.
-- **Machine Learning & NLP**: Scikit-Learn (TF-IDF, LDA), Statsmodels (Logistic Regression, OLS, Benjamini-Hochberg FDR).
-- **Network Analysis**: NetworkX, python-louvain (`community`).
-- **Interactive Visualization**: Dash, Dash Bootstrap Components, Plotly.
-- **Testing & Packaging**: Pytest, uv.
-
----
-
-## 📦 Quickstart
-
-A `justfile` is provided for running tasks:
+Use the `justfile` to run common workflow commands:
 
 ```bash
-# Synchronize virtual environment
+# Sync dependencies
 just sync
 
-# Run full analytical pipeline end-to-end
+# Run the complete analysis pipeline
 just pipeline
 
-# Launch Dash interactive web dashboard
+# Start the Dash web app
 just dashboard
 
-# Run automated pytest suite
+# Run test suite
 just test
 
-# Inspect pipeline artifacts & row counts
+# Check artifact record counts
 just status
 ```
 
-### Manual Pipeline Invocation with UV
+### Running stages directly
+
 ```bash
 # Phase 1: Profiling
 uv run python -m src.profiling.profiler
 
-# Phase 2: Ingestion & Relational Normalization
+# Phase 2: Ingestion and normalization
 uv run python -m src.ingestion.pipeline
 
-# Phase 3: Baseline Analytics
+# Phase 3: Baseline skill metrics
 uv run python -m src.analysis.skills.baseline
 
-# Phase 4: Skill Bundles & Regressions
+# Phase 4: Skill combinations and regressions
 uv run python -m src.analysis.combinations.vectorized_mining
 
-# Phase 5: Skill Co-occurrence Network
+# Phase 5: Skill network and communities
 uv run python -m src.analysis.network.graph_builder
 
-# Phase 6: Profile Language & Topics
+# Phase 6: Language and topic models
 uv run python -m src.analysis.text.language_models
 
-# Phase 7: Geographic Analysis
+# Phase 7: Geographic statistics
 uv run python -m src.analysis.geography.geo_analytics
 
-# Phase 8: Integrated Insights
+# Phase 8: Integrated summary
 uv run python -m src.analysis.integrated.insights_generator
 ```
 
-### 3. Launch Interactive Dashboard
+Start the dashboard directly with:
 ```bash
 uv run python -m dashboard.app
 ```
-Access the application at `http://localhost:8050`.
+The dashboard runs at `http://localhost:8050`.
 
-### 4. Run Test Suite
+Run tests with:
 ```bash
 uv run pytest -v
 ```
 
----
-
-## 📂 Repository Structure
+## Repository structure
 
 ```text
 ├── artifacts/
-│   ├── raw_json/              # Scraped JSON profile batches (3,661 files)
-│   └── profiling/             # Single-pass profiling summaries
+│   ├── raw_json/              # Scraped raw profile files (3,661 files)
+│   └── profiling/             # Initial profiling summaries
 ├── data/
-│   ├── parquet/               # Normalized relational tables (freelancers, skills, text, portfolios)
-│   └── analytical/            # Precomputed analytical outputs for Dash
+│   ├── parquet/               # Clean relational tables (freelancers, skills, text, portfolios)
+│   └── analytical/            # Precomputed analytical outputs
 ├── src/
-│   ├── common/                # Unified config & paths
-│   ├── profiling/             # Phase 1 profiler
-│   ├── ingestion/             # Phase 2 JSON to Parquet ingestion pipeline
+│   ├── common/                # Shared config and paths
+│   ├── profiling/             # Raw data profiling
+│   ├── ingestion/             # JSON to Parquet ingestion
 │   └── analysis/
-│       ├── skills/            # Phase 3 baseline skill metrics
-│       ├── combinations/      # Phase 4 vectorized association mining & regressions
-│       ├── network/           # Phase 5 NetworkX graph & Louvain clustering
-│       ├── text/              # Phase 6 Differential TF-IDF & LDA topic models
-│       ├── geography/         # Phase 7 Country & city analytics
-│       └── integrated/        # Phase 8 Master narrative synthesizer
+│       ├── skills/            # Baseline skill statistics
+│       ├── combinations/      # Itemset mining and regressions
+│       ├── network/           # Co-occurrence graph and Louvain clusters
+│       ├── text/              # TF-IDF and LDA models
+│       ├── geography/         # Country and city summaries
+│       └── integrated/        # Summary findings generator
 ├── dashboard/
-│   ├── app.py                 # Multi-page Dash entrypoint
-│   └── pages/                 # Overview, Skill Bundles, Network, Language, Geography
+│   ├── app.py                 # Dash application entrypoint
+│   └── pages/                 # Overview, bundles, network, language, geography
 ├── docs/
-│   ├── data_dictionary.md     # Full schema documentation
-│   ├── methodology.md         # Mathematical & statistical formulations
-│   ├── pipeline.md            # Execution guide
-│   ├── analytical_outputs.md  # Detailed summary of analytical artifacts
-│   └── dashboard.md           # Guide to Dash interactive features
-├── tests/                     # Unit and integration test suite
-└── pyproject.toml             # uv configuration and dependencies
+│   ├── data_dictionary.md     # Schema descriptions
+│   ├── methodology.md         # Mathematical definitions
+│   ├── pipeline.md            # Pipeline execution guide
+│   ├── analytical_outputs.md  # Generated output descriptions
+│   └── dashboard.md           # Dashboard user guide
+├── tests/                     # Test suite
+├── justfile                   # Task runner configuration
+└── pyproject.toml             # Project dependencies
 ```
 
----
+## Documentation
 
-## 📚 Documentation Links
-- [Data Dictionary](docs/data_dictionary.md)
-- [Methodology & Formulations](docs/methodology.md)
-- [Pipeline Execution Guide](docs/pipeline.md)
-- [Analytical Outputs](docs/analytical_outputs.md)
-- [Dashboard Guide](docs/dashboard.md)
+- [Data dictionary](docs/data_dictionary.md)
+- [Methodology](docs/methodology.md)
+- [Pipeline execution guide](docs/pipeline.md)
+- [Analytical outputs](docs/analytical_outputs.md)
+- [Dashboard guide](docs/dashboard.md)
