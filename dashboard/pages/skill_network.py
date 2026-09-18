@@ -275,19 +275,31 @@ def update_network(selected_comm, color_mode, min_edge_weight):
     ]
 
     # Color mapping
+    comm_palette = [
+        "#3498db",
+        "#2ecc71",
+        "#e74c3c",
+        "#f39c12",
+        "#9b59b6",
+        "#1abc9c",
+        "#34495e",
+        "#d35400",
+    ]
     if color_mode == "community_id":
-        color_vals = sub_nodes_df["community_id"].astype(str)
-        colorscale = "tab10"
+        color_vals = [
+            comm_palette[int(cid) % len(comm_palette)]
+            for cid in sub_nodes_df["community_id"]
+        ]
+        colorscale = None
         show_colorbar = False
     elif color_mode == "high_earner_rate":
-        color_vals = sub_nodes_df["high_earner_rate"]
+        color_vals = sub_nodes_df["high_earner_rate"].tolist()
         colorscale = "Viridis"
         show_colorbar = True
     else:
-        color_vals = sub_nodes_df["bridge_score"]
+        color_vals = sub_nodes_df["bridge_score"].tolist()
         colorscale = "Hot"
         show_colorbar = True
-
     node_trace = go.Scatter(
         x=node_x,
         y=node_y,
