@@ -1,0 +1,538 @@
+{
+  "model_controls": [
+    "skill_count",
+    "log_reviews",
+    "country_India",
+    "country_Pakistan",
+    "country_Bangladesh",
+    "country_United States",
+    "country_Egypt"
+  ],
+  "top_bundles_regression": [
+    {
+      "bundle_name": "Landing Pages + OSCommerce",
+      "bundle_skills": [
+        "Landing Pages",
+        "OSCommerce"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 26,
+      "raw_odds_ratio": 230.533,
+      "controlled_odds_ratio": 74.234,
+      "controlled_ci_lower": 1.741,
+      "controlled_ci_upper": 3164.786,
+      "controlled_logit_pval": 0.02446997359719872,
+      "ols_log_earnings_coef": -0.191,
+      "ols_pval": 0.5276952782214585,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Figma + Website Design + Yii",
+      "bundle_skills": [
+        "Figma",
+        "Website Design",
+        "Yii"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 26,
+      "raw_odds_ratio": 230.533,
+      "controlled_odds_ratio": 15.07,
+      "controlled_ci_lower": 1.888,
+      "controlled_ci_upper": 120.277,
+      "controlled_logit_pval": 0.010472123264356668,
+      "ols_log_earnings_coef": 0.516,
+      "ols_pval": 0.09250787049519718,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "OSCommerce + UX / User Experience",
+      "bundle_skills": [
+        "OSCommerce",
+        "UX / User Experience"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 22,
+      "raw_odds_ratio": 192.857,
+      "controlled_odds_ratio": 83.111,
+      "controlled_ci_lower": 2.195,
+      "controlled_ci_upper": 3147.115,
+      "controlled_logit_pval": 0.017126231210276947,
+      "ols_log_earnings_coef": 0.309,
+      "ols_pval": 0.3476594937078721,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Illustrator + OSCommerce + Website Design",
+      "bundle_skills": [
+        "Illustrator",
+        "OSCommerce",
+        "Website Design"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "raw_odds_ratio": 183.486,
+      "controlled_odds_ratio": 25.438,
+      "controlled_ci_lower": 1.757,
+      "controlled_ci_upper": 368.191,
+      "controlled_logit_pval": 0.01761768892130777,
+      "ols_log_earnings_coef": -0.212,
+      "ols_pval": 0.5266995408787521,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Graphic Design + Illustrator + OSCommerce",
+      "bundle_skills": [
+        "Graphic Design",
+        "Illustrator",
+        "OSCommerce"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "raw_odds_ratio": 183.486,
+      "controlled_odds_ratio": 25.438,
+      "controlled_ci_lower": 1.757,
+      "controlled_ci_upper": 368.191,
+      "controlled_logit_pval": 0.01761768892130777,
+      "ols_log_earnings_coef": -0.212,
+      "ols_pval": 0.5266995408787521,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Blog Design + OSCommerce",
+      "bundle_skills": [
+        "Blog Design",
+        "OSCommerce"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 20,
+      "raw_odds_ratio": 174.134,
+      "controlled_odds_ratio": 8.241,
+      "controlled_ci_lower": 1.054,
+      "controlled_ci_upper": 64.412,
+      "controlled_logit_pval": 0.0443744481872459,
+      "ols_log_earnings_coef": -0.123,
+      "ols_pval": 0.7193177514083927,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "CSS + Graphic Design + OSCommerce",
+      "bundle_skills": [
+        "CSS",
+        "Graphic Design",
+        "OSCommerce"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 32,
+      "raw_odds_ratio": 139.016,
+      "controlled_odds_ratio": 8.827,
+      "controlled_ci_lower": 1.9,
+      "controlled_ci_upper": 41.019,
+      "controlled_logit_pval": 0.0054596464962324955,
+      "ols_log_earnings_coef": -0.124,
+      "ols_pval": 0.65028721399084,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Graphic Design + OSCommerce + Web Development",
+      "bundle_skills": [
+        "Graphic Design",
+        "OSCommerce",
+        "Web Development"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 31,
+      "raw_odds_ratio": 134.244,
+      "controlled_odds_ratio": 7.238,
+      "controlled_ci_lower": 1.571,
+      "controlled_ci_upper": 33.351,
+      "controlled_logit_pval": 0.011100602700774446,
+      "ols_log_earnings_coef": -0.085,
+      "ols_pval": 0.7607110261717733,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "OSCommerce + Squarespace",
+      "bundle_skills": [
+        "OSCommerce",
+        "Squarespace"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 25,
+      "raw_odds_ratio": 105.816,
+      "controlled_odds_ratio": 14.62,
+      "controlled_ci_lower": 1.815,
+      "controlled_ci_upper": 117.783,
+      "controlled_logit_pval": 0.011742601812476161,
+      "ols_log_earnings_coef": 0.036,
+      "ols_pval": 0.9078556424708543,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Logo Design + OSCommerce + Photoshop",
+      "bundle_skills": [
+        "Logo Design",
+        "OSCommerce",
+        "Photoshop"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 24,
+      "raw_odds_ratio": 101.112,
+      "controlled_odds_ratio": 12.268,
+      "controlled_ci_lower": 1.993,
+      "controlled_ci_upper": 75.525,
+      "controlled_logit_pval": 0.00685878609774149,
+      "ols_log_earnings_coef": -0.053,
+      "ols_pval": 0.8666789005514605,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Graphic Design + OSCommerce + Photoshop Design",
+      "bundle_skills": [
+        "Graphic Design",
+        "OSCommerce",
+        "Photoshop Design"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 24,
+      "raw_odds_ratio": 101.112,
+      "controlled_odds_ratio": 6.414,
+      "controlled_ci_lower": 1.004,
+      "controlled_ci_upper": 40.979,
+      "controlled_logit_pval": 0.0495309843024111,
+      "ols_log_earnings_coef": -0.332,
+      "ols_pval": 0.2915075189307653,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Illustrator + OSCommerce",
+      "bundle_skills": [
+        "Illustrator",
+        "OSCommerce"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 23,
+      "raw_odds_ratio": 96.418,
+      "controlled_odds_ratio": 12.44,
+      "controlled_ci_lower": 1.97,
+      "controlled_ci_upper": 78.55,
+      "controlled_logit_pval": 0.007336592322375981,
+      "ols_log_earnings_coef": -0.162,
+      "ols_pval": 0.6130079311861693,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Adobe Dreamweaver + Software Testing",
+      "bundle_skills": [
+        "Adobe Dreamweaver",
+        "Software Testing"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 22,
+      "raw_odds_ratio": 91.733,
+      "controlled_odds_ratio": 10.455,
+      "controlled_ci_lower": 1.593,
+      "controlled_ci_upper": 68.6,
+      "controlled_logit_pval": 0.014467405467880102,
+      "ols_log_earnings_coef": 0.0,
+      "ols_pval": 0.9998113837633006,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Facebook API + Yii",
+      "bundle_skills": [
+        "Facebook API",
+        "Yii"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 22,
+      "raw_odds_ratio": 91.733,
+      "controlled_odds_ratio": 11.682,
+      "controlled_ci_lower": 1.972,
+      "controlled_ci_upper": 69.216,
+      "controlled_logit_pval": 0.006769843591268938,
+      "ols_log_earnings_coef": 0.688,
+      "ols_pval": 0.03872908598055003,
+      "ols_r2": 0.7754
+    },
+    {
+      "bundle_name": "Christmas + PHP",
+      "bundle_skills": [
+        "Christmas",
+        "PHP"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 22,
+      "raw_odds_ratio": 91.733,
+      "controlled_odds_ratio": 8.985,
+      "controlled_ci_lower": 1.473,
+      "controlled_ci_upper": 54.8,
+      "controlled_logit_pval": 0.01730946018840074,
+      "ols_log_earnings_coef": -0.401,
+      "ols_pval": 0.21788227863440152,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "ChatGPT + Yii",
+      "bundle_skills": [
+        "ChatGPT",
+        "Yii"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 21,
+      "raw_odds_ratio": 87.058,
+      "controlled_odds_ratio": 6.752,
+      "controlled_ci_lower": 1.236,
+      "controlled_ci_upper": 36.895,
+      "controlled_logit_pval": 0.027501903920996187,
+      "ols_log_earnings_coef": 0.651,
+      "ols_pval": 0.055893418361361955,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Graphic Design + OSCommerce + Social Media Marketing",
+      "bundle_skills": [
+        "Graphic Design",
+        "OSCommerce",
+        "Social Media Marketing"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "raw_odds_ratio": 87.058,
+      "controlled_odds_ratio": 4.484,
+      "controlled_ci_lower": 0.936,
+      "controlled_ci_upper": 21.467,
+      "controlled_logit_pval": 0.06040693549626297,
+      "ols_log_earnings_coef": -0.051,
+      "ols_pval": 0.8793346167225208,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Christmas + PHP + Website Design",
+      "bundle_skills": [
+        "Christmas",
+        "PHP",
+        "Website Design"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "raw_odds_ratio": 87.058,
+      "controlled_odds_ratio": 8.512,
+      "controlled_ci_lower": 1.356,
+      "controlled_ci_upper": 53.451,
+      "controlled_logit_pval": 0.022342781680407653,
+      "ols_log_earnings_coef": -0.412,
+      "ols_pval": 0.21707971233752285,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Logo Design + OSCommerce + Photoshop Design",
+      "bundle_skills": [
+        "Logo Design",
+        "OSCommerce",
+        "Photoshop Design"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "raw_odds_ratio": 87.058,
+      "controlled_odds_ratio": 5.515,
+      "controlled_ci_lower": 0.838,
+      "controlled_ci_upper": 36.305,
+      "controlled_logit_pval": 0.07575301636311166,
+      "ols_log_earnings_coef": -0.295,
+      "ols_pval": 0.3783097122853697,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Graphic Design + Logo Design + OSCommerce",
+      "bundle_skills": [
+        "Graphic Design",
+        "Logo Design",
+        "OSCommerce"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 31,
+      "raw_odds_ratio": 86.312,
+      "controlled_odds_ratio": 7.807,
+      "controlled_ci_lower": 1.765,
+      "controlled_ci_upper": 34.533,
+      "controlled_logit_pval": 0.006753191881395379,
+      "ols_log_earnings_coef": -0.198,
+      "ols_pval": 0.4743956167784034,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "OSCommerce + Wix",
+      "bundle_skills": [
+        "OSCommerce",
+        "Wix"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 30,
+      "raw_odds_ratio": 83.144,
+      "controlled_odds_ratio": 12.771,
+      "controlled_ci_lower": 1.684,
+      "controlled_ci_upper": 96.844,
+      "controlled_logit_pval": 0.013725744772784442,
+      "ols_log_earnings_coef": 0.024,
+      "ols_pval": 0.9335758808187067,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Node.js + OSCommerce + Software Architecture",
+      "bundle_skills": [
+        "Node.js",
+        "OSCommerce",
+        "Software Architecture"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 30,
+      "raw_odds_ratio": 83.144,
+      "controlled_odds_ratio": 9.842,
+      "controlled_ci_lower": 2.05,
+      "controlled_ci_upper": 47.252,
+      "controlled_logit_pval": 0.00427991312624324,
+      "ols_log_earnings_coef": 0.032,
+      "ols_pval": 0.909493484132117,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Programming + Real Estate",
+      "bundle_skills": [
+        "Programming",
+        "Real Estate"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 20,
+      "raw_odds_ratio": 82.392,
+      "controlled_odds_ratio": 12.726,
+      "controlled_ci_lower": 2.261,
+      "controlled_ci_upper": 71.631,
+      "controlled_logit_pval": 0.003910483134742533,
+      "ols_log_earnings_coef": 0.653,
+      "ols_pval": 0.05900850572865255,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "JSON + Project Scheduling",
+      "bundle_skills": [
+        "JSON",
+        "Project Scheduling"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 20,
+      "raw_odds_ratio": 82.392,
+      "controlled_odds_ratio": 13.851,
+      "controlled_ci_lower": 2.726,
+      "controlled_ci_upper": 70.377,
+      "controlled_logit_pval": 0.001528518204869487,
+      "ols_log_earnings_coef": 0.878,
+      "ols_pval": 0.010551070671165086,
+      "ols_r2": 0.7754
+    },
+    {
+      "bundle_name": "BigCommerce + CS-Cart",
+      "bundle_skills": [
+        "BigCommerce",
+        "CS-Cart"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 20,
+      "raw_odds_ratio": 82.392,
+      "controlled_odds_ratio": 7.095,
+      "controlled_ci_lower": 1.237,
+      "controlled_ci_upper": 40.709,
+      "controlled_logit_pval": 0.027936129549311284,
+      "ols_log_earnings_coef": 0.04,
+      "ols_pval": 0.9071108023046491,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Banner Design + Illustrator + Ionic Framework",
+      "bundle_skills": [
+        "Banner Design",
+        "Illustrator",
+        "Ionic Framework"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 20,
+      "raw_odds_ratio": 82.392,
+      "controlled_odds_ratio": 10.009,
+      "controlled_ci_lower": 1.598,
+      "controlled_ci_upper": 62.699,
+      "controlled_logit_pval": 0.013868956878308504,
+      "ols_log_earnings_coef": 0.537,
+      "ols_pval": 0.12127982497489205,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Christmas + Graphic Design + PHP",
+      "bundle_skills": [
+        "Christmas",
+        "Graphic Design",
+        "PHP"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 20,
+      "raw_odds_ratio": 82.392,
+      "controlled_odds_ratio": 8.372,
+      "controlled_ci_lower": 1.32,
+      "controlled_ci_upper": 53.102,
+      "controlled_logit_pval": 0.02415774969896367,
+      "ols_log_earnings_coef": -0.416,
+      "ols_pval": 0.22309465045699656,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Christmas + HTML + Website Design",
+      "bundle_skills": [
+        "Christmas",
+        "HTML",
+        "Website Design"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 20,
+      "raw_odds_ratio": 82.392,
+      "controlled_odds_ratio": 12.229,
+      "controlled_ci_lower": 1.248,
+      "controlled_ci_upper": 119.795,
+      "controlled_logit_pval": 0.031518042588230676,
+      "ols_log_earnings_coef": -0.469,
+      "ols_pval": 0.16976981587388953,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Adobe Dreamweaver + Web Hosting",
+      "bundle_skills": [
+        "Adobe Dreamweaver",
+        "Web Hosting"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 29,
+      "raw_odds_ratio": 79.982,
+      "controlled_odds_ratio": 4.348,
+      "controlled_ci_lower": 1.166,
+      "controlled_ci_upper": 16.206,
+      "controlled_logit_pval": 0.02858034607027228,
+      "ols_log_earnings_coef": -0.37,
+      "ols_pval": 0.1954711543227714,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Figma + Yii",
+      "bundle_skills": [
+        "Figma",
+        "Yii"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 28,
+      "raw_odds_ratio": 76.827,
+      "controlled_odds_ratio": 6.122,
+      "controlled_ci_lower": 1.587,
+      "controlled_ci_upper": 23.623,
+      "controlled_logit_pval": 0.008539888813429165,
+      "ols_log_earnings_coef": 0.518,
+      "ols_pval": 0.07922452473738763,
+      "ols_r2": 0.7753
+    }
+  ]
+}

@@ -1,0 +1,569 @@
+{
+  "dataset_overview": {
+    "total_freelancers": 10002,
+    "total_high_earners": 1001.0,
+    "high_earner_rate": 0.10007998400319935,
+    "median_earnings": 876.5,
+    "mean_earnings": 37349.72395520896,
+    "std_earnings": 233411.01645835995,
+    "median_hourly_rate": 20.0,
+    "mean_hourly_rate": 24.98402019596081,
+    "median_skills_per_user": 20.0,
+    "mean_skills_per_user": 35.07408518296341,
+    "median_review_count": 1.0,
+    "mean_review_count": 95.8001399720056,
+    "total_unique_skills": 3195
+  },
+  "top_skill_bundles": [
+    {
+      "bundle_name": "Landing Pages + OSCommerce",
+      "bundle_size": 2,
+      "freelancer_count": 26,
+      "support": 0.0026,
+      "lift": 7.331,
+      "high_earner_rate": 0.9615,
+      "high_earner_lift": 9.608,
+      "odds_ratio": 230.533,
+      "ci_lower": 31.202,
+      "ci_upper": 1703.261,
+      "adjusted_p_value": 2.6706887126991895e-45
+    },
+    {
+      "bundle_name": "Figma + Website Design + Yii",
+      "bundle_size": 3,
+      "freelancer_count": 26,
+      "support": 0.0026,
+      "lift": 12.564,
+      "high_earner_rate": 0.9615,
+      "high_earner_lift": 9.608,
+      "odds_ratio": 230.533,
+      "ci_lower": 31.202,
+      "ci_upper": 1703.261,
+      "adjusted_p_value": 2.6706887126991895e-45
+    },
+    {
+      "bundle_name": "OSCommerce + UX / User Experience",
+      "bundle_size": 2,
+      "freelancer_count": 22,
+      "support": 0.0022,
+      "lift": 3.48,
+      "high_earner_rate": 0.9545,
+      "high_earner_lift": 9.538,
+      "odds_ratio": 192.857,
+      "ci_lower": 25.913,
+      "ci_upper": 1435.34,
+      "adjusted_p_value": 1.276322640369347e-37
+    },
+    {
+      "bundle_name": "Illustrator + OSCommerce + Website Design",
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "support": 0.0021,
+      "lift": 5.428,
+      "high_earner_rate": 0.9524,
+      "high_earner_lift": 9.516,
+      "odds_ratio": 183.486,
+      "ci_lower": 24.598,
+      "ci_upper": 1368.709,
+      "adjusted_p_value": 1.0506744985396368e-35
+    },
+    {
+      "bundle_name": "Graphic Design + Illustrator + OSCommerce",
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "support": 0.0021,
+      "lift": 3.998,
+      "high_earner_rate": 0.9524,
+      "high_earner_lift": 9.516,
+      "odds_ratio": 183.486,
+      "ci_lower": 24.598,
+      "ci_upper": 1368.709,
+      "adjusted_p_value": 1.0506744985396368e-35
+    },
+    {
+      "bundle_name": "Blog Design + OSCommerce",
+      "bundle_size": 2,
+      "freelancer_count": 20,
+      "support": 0.002,
+      "lift": 10.419,
+      "high_earner_rate": 0.95,
+      "high_earner_lift": 9.492,
+      "odds_ratio": 174.134,
+      "ci_lower": 23.286,
+      "ci_upper": 1302.217,
+      "adjusted_p_value": 8.658013789131947e-34
+    },
+    {
+      "bundle_name": "CSS + Graphic Design + OSCommerce",
+      "bundle_size": 3,
+      "freelancer_count": 32,
+      "support": 0.0032,
+      "lift": 8.038,
+      "high_earner_rate": 0.9375,
+      "high_earner_lift": 9.368,
+      "odds_ratio": 139.016,
+      "ci_lower": 33.171,
+      "ci_upper": 582.602,
+      "adjusted_p_value": 7.27923299989224e-53
+    },
+    {
+      "bundle_name": "Graphic Design + OSCommerce + Web Development",
+      "bundle_size": 3,
+      "freelancer_count": 31,
+      "support": 0.0031,
+      "lift": 4.983,
+      "high_earner_rate": 0.9355,
+      "high_earner_lift": 9.347,
+      "odds_ratio": 134.244,
+      "ci_lower": 31.983,
+      "ci_upper": 563.469,
+      "adjusted_p_value": 6.001201365045849e-51
+    },
+    {
+      "bundle_name": "OSCommerce + Squarespace",
+      "bundle_size": 2,
+      "freelancer_count": 25,
+      "support": 0.0025,
+      "lift": 11.226,
+      "high_earner_rate": 0.92,
+      "high_earner_lift": 9.193,
+      "odds_ratio": 105.816,
+      "ci_lower": 24.91,
+      "ci_upper": 449.503,
+      "adjusted_p_value": 1.7678899011194743e-39
+    },
+    {
+      "bundle_name": "Logo Design + OSCommerce + Photoshop",
+      "bundle_size": 3,
+      "freelancer_count": 24,
+      "support": 0.0024,
+      "lift": 4.654,
+      "high_earner_rate": 0.9167,
+      "high_earner_lift": 9.159,
+      "odds_ratio": 101.112,
+      "ci_lower": 23.74,
+      "ci_upper": 430.648,
+      "adjusted_p_value": 1.4138754132893126e-37
+    }
+  ],
+  "top_popular_skills": [
+    {
+      "skill_name": "Graphic Design",
+      "freelancer_count": 3670,
+      "prevalence": 0.36693,
+      "median_earnings": 6840.5,
+      "high_earner_rate": 0.1632
+    },
+    {
+      "skill_name": "Logo Design",
+      "freelancer_count": 2737,
+      "prevalence": 0.27365,
+      "median_earnings": 5304.0,
+      "high_earner_rate": 0.1527
+    },
+    {
+      "skill_name": "Website Design",
+      "freelancer_count": 2703,
+      "prevalence": 0.27025,
+      "median_earnings": 15057.0,
+      "high_earner_rate": 0.2164
+    },
+    {
+      "skill_name": "HTML",
+      "freelancer_count": 2617,
+      "prevalence": 0.26165,
+      "median_earnings": 9937.0,
+      "high_earner_rate": 0.1899
+    },
+    {
+      "skill_name": "JavaScript",
+      "freelancer_count": 2581,
+      "prevalence": 0.25805,
+      "median_earnings": 7861.0,
+      "high_earner_rate": 0.1782
+    }
+  ],
+  "top_earning_skills": [
+    {
+      "skill_name": "OSCommerce",
+      "freelancer_count": 75,
+      "prevalence": 0.0075,
+      "median_earnings": 118472.0,
+      "high_earner_rate": 0.6533
+    },
+    {
+      "skill_name": "Photoshop Coding",
+      "freelancer_count": 79,
+      "prevalence": 0.0079,
+      "median_earnings": 107134.0,
+      "high_earner_rate": 0.6076
+    },
+    {
+      "skill_name": "Zen Cart",
+      "freelancer_count": 60,
+      "prevalence": 0.006,
+      "median_earnings": 105982.0,
+      "high_earner_rate": 0.6
+    },
+    {
+      "skill_name": "Yii",
+      "freelancer_count": 82,
+      "prevalence": 0.0082,
+      "median_earnings": 124847.5,
+      "high_earner_rate": 0.5976
+    },
+    {
+      "skill_name": "PhoneGap",
+      "freelancer_count": 83,
+      "prevalence": 0.0083,
+      "median_earnings": 104433.0,
+      "high_earner_rate": 0.5783
+    }
+  ],
+  "network_communities": [
+    {
+      "community_id": 2,
+      "num_skills": 74,
+      "total_freelancers": 78557,
+      "avg_high_earner_rate": 0.23674054054054053,
+      "median_earnings": 14267.0,
+      "top_skills": "Website Design, HTML, JavaScript, PHP, WordPress"
+    },
+    {
+      "community_id": 0,
+      "num_skills": 37,
+      "total_freelancers": 41722,
+      "avg_high_earner_rate": 0.1840081081081081,
+      "median_earnings": 11324.0,
+      "top_skills": "Graphic Design, Logo Design, Photoshop, Illustrator, Photoshop Design"
+    },
+    {
+      "community_id": 1,
+      "num_skills": 39,
+      "total_freelancers": 37153,
+      "avg_high_earner_rate": 0.18084102564102564,
+      "median_earnings": 6969.0,
+      "top_skills": "Data Entry, Excel, Content Writing, Data Processing, Social Media Marketing"
+    }
+  ],
+  "top_language_differentiators": [
+    {
+      "term": "google com",
+      "ngram_type": "bigram",
+      "doc_frequency": 55,
+      "high_earner_mean_tfidf": 0.00383,
+      "non_high_earner_mean_tfidf": 0.00028,
+      "diff_ratio": 10.199,
+      "log_diff_score": 2.3223
+    },
+    {
+      "term": "com au",
+      "ngram_type": "bigram",
+      "doc_frequency": 75,
+      "high_earner_mean_tfidf": 0.00368,
+      "non_high_earner_mean_tfidf": 0.00032,
+      "diff_ratio": 9.001,
+      "log_diff_score": 2.1973
+    },
+    {
+      "term": "website url",
+      "ngram_type": "bigram",
+      "doc_frequency": 87,
+      "high_earner_mean_tfidf": 0.00296,
+      "non_high_earner_mean_tfidf": 0.0004,
+      "diff_ratio": 6.104,
+      "log_diff_score": 1.809
+    },
+    {
+      "term": "page ranking",
+      "ngram_type": "bigram",
+      "doc_frequency": 52,
+      "high_earner_mean_tfidf": 0.00231,
+      "non_high_earner_mean_tfidf": 0.0003,
+      "diff_ratio": 6.078,
+      "log_diff_score": 1.8047
+    },
+    {
+      "term": "taxi",
+      "ngram_type": "unigram",
+      "doc_frequency": 140,
+      "high_earner_mean_tfidf": 0.00428,
+      "non_high_earner_mean_tfidf": 0.00064,
+      "diff_ratio": 5.884,
+      "log_diff_score": 1.7722
+    },
+    {
+      "term": "1st page",
+      "ngram_type": "bigram",
+      "doc_frequency": 51,
+      "high_earner_mean_tfidf": 0.00246,
+      "non_high_earner_mean_tfidf": 0.00034,
+      "diff_ratio": 5.866,
+      "log_diff_score": 1.7692
+    },
+    {
+      "term": "smo",
+      "ngram_type": "unigram",
+      "doc_frequency": 78,
+      "high_earner_mean_tfidf": 0.00294,
+      "non_high_earner_mean_tfidf": 0.00042,
+      "diff_ratio": 5.827,
+      "log_diff_score": 1.7625
+    },
+    {
+      "term": "au",
+      "ngram_type": "unigram",
+      "doc_frequency": 122,
+      "high_earner_mean_tfidf": 0.00415,
+      "non_high_earner_mean_tfidf": 0.00063,
+      "diff_ratio": 5.82,
+      "log_diff_score": 1.7613
+    },
+    {
+      "term": "rent",
+      "ngram_type": "unigram",
+      "doc_frequency": 196,
+      "high_earner_mean_tfidf": 0.00467,
+      "non_high_earner_mean_tfidf": 0.00077,
+      "diff_ratio": 5.487,
+      "log_diff_score": 1.7023
+    },
+    {
+      "term": "infotech",
+      "ngram_type": "unigram",
+      "doc_frequency": 31,
+      "high_earner_mean_tfidf": 0.00152,
+      "non_high_earner_mean_tfidf": 0.00021,
+      "diff_ratio": 5.195,
+      "log_diff_score": 1.6478
+    }
+  ],
+  "lda_topics": [
+    {
+      "topic_id": 1,
+      "topic_label": "Topic 1: App / Platform / Mobile",
+      "top_keywords": "app, platform, mobile, user, users, amp, management, features, application, based",
+      "dominant_freelancer_count": 710,
+      "high_earner_rate": 0.2493,
+      "median_earnings": 16280.0
+    },
+    {
+      "topic_id": 7,
+      "topic_label": "Topic 7: Website / Wordpress / Development",
+      "top_keywords": "website, wordpress, development, responsive, web, custom, shopify, site, user, page",
+      "dominant_freelancer_count": 888,
+      "high_earner_rate": 0.2117,
+      "median_earnings": 14536.0
+    },
+    {
+      "topic_id": 8,
+      "topic_label": "Topic 8: Seo / Google / Marketing",
+      "top_keywords": "seo, google, marketing, content, website, ads, search, page, social, media",
+      "dominant_freelancer_count": 499,
+      "high_earner_rate": 0.1383,
+      "median_earnings": 880.0
+    },
+    {
+      "topic_id": 2,
+      "topic_label": "Topic 2: 3D / Interior / Animation",
+      "top_keywords": "3d, interior, animation, rendering, modeling, architectural, product, model, using, 2d",
+      "dominant_freelancer_count": 844,
+      "high_earner_rate": 0.0936,
+      "median_earnings": 3269.0
+    },
+    {
+      "topic_id": 4,
+      "topic_label": "Topic 4: Logo / Logo Design / Brand",
+      "top_keywords": "logo, logo design, brand, designs, video, graphic, business, designer, creative, amp",
+      "dominant_freelancer_count": 2311,
+      "high_earner_rate": 0.0775,
+      "median_earnings": 500.0
+    },
+    {
+      "topic_id": 6,
+      "topic_label": "Topic 6: Data / Analysis / Business",
+      "top_keywords": "data, analysis, business, excel, research, management, support, writing, power, using",
+      "dominant_freelancer_count": 2488,
+      "high_earner_rate": 0.0715,
+      "median_earnings": 300.0
+    },
+    {
+      "topic_id": 5,
+      "topic_label": "Topic 5: Brand / Modern / Designed",
+      "top_keywords": "brand, modern, designed, clean, visual, digital, identity, visually, focused, user",
+      "dominant_freelancer_count": 667,
+      "high_earner_rate": 0.066,
+      "median_earnings": 739.0
+    },
+    {
+      "topic_id": 3,
+      "topic_label": "Topic 3: Ai / Development / Web",
+      "top_keywords": "ai, development, web, js, automation, stack, react, systems, platform, api",
+      "dominant_freelancer_count": 1595,
+      "high_earner_rate": 0.0545,
+      "median_earnings": 600.0
+    }
+  ],
+  "geographic_highlights": [
+    {
+      "country": "India",
+      "freelancer_count": 2139,
+      "high_earner_rate": 0.1809,
+      "median_earnings": 4792.0,
+      "median_hourly_rate": 15.0,
+      "top_skills": "Website Design (876), PHP (863), HTML (849), WordPress (811), Graphic Design (808)"
+    },
+    {
+      "country": "Pakistan",
+      "freelancer_count": 1607,
+      "high_earner_rate": 0.1388,
+      "median_earnings": 7114.0,
+      "median_hourly_rate": 20.0,
+      "top_skills": "Graphic Design (689), Website Design (643), WordPress (625), PHP (574), HTML (554)"
+    },
+    {
+      "country": "Bangladesh",
+      "freelancer_count": 1090,
+      "high_earner_rate": 0.0743,
+      "median_earnings": 1000.0,
+      "median_hourly_rate": 15.0,
+      "top_skills": "Graphic Design (713), Logo Design (648), Photoshop (507), Illustrator (504), Banner Design (421)"
+    },
+    {
+      "country": "United States",
+      "freelancer_count": 421,
+      "high_earner_rate": 0.0546,
+      "median_earnings": 500.0,
+      "median_hourly_rate": 40.0,
+      "top_skills": "HTML (140), Python (139), Web Development (138), PHP (138), JavaScript (137)"
+    },
+    {
+      "country": "Egypt",
+      "freelancer_count": 386,
+      "high_earner_rate": 0.0492,
+      "median_earnings": 975.0,
+      "median_hourly_rate": 20.0,
+      "top_skills": "Graphic Design (127), Logo Design (112), Photoshop (102), Excel (82), Data Entry (80)"
+    },
+    {
+      "country": "Indonesia",
+      "freelancer_count": 341,
+      "high_earner_rate": 0.0293,
+      "median_earnings": 325.0,
+      "median_hourly_rate": 15.0,
+      "top_skills": "Graphic Design (149), Logo Design (123), Photoshop (112), Data Entry (90), Video Editing (77)"
+    },
+    {
+      "country": "Argentina",
+      "freelancer_count": 223,
+      "high_earner_rate": 0.0538,
+      "median_earnings": 320.0,
+      "median_hourly_rate": 18.0,
+      "top_skills": "Graphic Design (55), Data Entry (50), Photoshop (49), Spanish Translator (44), Logo Design (39)"
+    },
+    {
+      "country": "Philippines",
+      "freelancer_count": 190,
+      "high_earner_rate": 0.0474,
+      "median_earnings": 492.0,
+      "median_hourly_rate": 10.0,
+      "top_skills": "Data Entry (91), Virtual Assistant (67), Excel (61), Graphic Design (45), Customer Support (40)"
+    }
+  ],
+  "controlled_regressions_sample": [
+    {
+      "bundle_name": "Landing Pages + OSCommerce",
+      "bundle_skills": [
+        "Landing Pages",
+        "OSCommerce"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 26,
+      "raw_odds_ratio": 230.533,
+      "controlled_odds_ratio": 74.234,
+      "controlled_ci_lower": 1.741,
+      "controlled_ci_upper": 3164.786,
+      "controlled_logit_pval": 0.02446997359719872,
+      "ols_log_earnings_coef": -0.191,
+      "ols_pval": 0.5276952782214585,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Figma + Website Design + Yii",
+      "bundle_skills": [
+        "Figma",
+        "Website Design",
+        "Yii"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 26,
+      "raw_odds_ratio": 230.533,
+      "controlled_odds_ratio": 15.07,
+      "controlled_ci_lower": 1.888,
+      "controlled_ci_upper": 120.277,
+      "controlled_logit_pval": 0.010472123264356668,
+      "ols_log_earnings_coef": 0.516,
+      "ols_pval": 0.09250787049519718,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "OSCommerce + UX / User Experience",
+      "bundle_skills": [
+        "OSCommerce",
+        "UX / User Experience"
+      ],
+      "bundle_size": 2,
+      "freelancer_count": 22,
+      "raw_odds_ratio": 192.857,
+      "controlled_odds_ratio": 83.111,
+      "controlled_ci_lower": 2.195,
+      "controlled_ci_upper": 3147.115,
+      "controlled_logit_pval": 0.017126231210276947,
+      "ols_log_earnings_coef": 0.309,
+      "ols_pval": 0.3476594937078721,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Illustrator + OSCommerce + Website Design",
+      "bundle_skills": [
+        "Illustrator",
+        "OSCommerce",
+        "Website Design"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "raw_odds_ratio": 183.486,
+      "controlled_odds_ratio": 25.438,
+      "controlled_ci_lower": 1.757,
+      "controlled_ci_upper": 368.191,
+      "controlled_logit_pval": 0.01761768892130777,
+      "ols_log_earnings_coef": -0.212,
+      "ols_pval": 0.5266995408787521,
+      "ols_r2": 0.7753
+    },
+    {
+      "bundle_name": "Graphic Design + Illustrator + OSCommerce",
+      "bundle_skills": [
+        "Graphic Design",
+        "Illustrator",
+        "OSCommerce"
+      ],
+      "bundle_size": 3,
+      "freelancer_count": 21,
+      "raw_odds_ratio": 183.486,
+      "controlled_odds_ratio": 25.438,
+      "controlled_ci_lower": 1.757,
+      "controlled_ci_upper": 368.191,
+      "controlled_logit_pval": 0.01761768892130777,
+      "ols_log_earnings_coef": -0.212,
+      "ols_pval": 0.5266995408787521,
+      "ols_r2": 0.7753
+    }
+  ],
+  "key_takeaways": [
+    "Freelancers with specialized, synergistic skill combinations (e.g., e-commerce architecture + modern frontend or systems engineering) exhibit significantly higher odds of being in the top 10% earnings tier.",
+    "Popularity does not equal profitability: widely held baseline skills (e.g. general HTML/Data Entry) show lower median earnings and high-earner rates compared to targeted stack combinations.",
+    "Profile language analysis confirms high-earning freelancers emphasize outcome-oriented framing (architecture, enterprise, optimization, full-lifecycle) rather than generic task listings.",
+    "Network analysis reveals distinct modular skill communities (e.g., Design/Media, Web/Fullstack Engineering, Data/Backend), with specific bridge skills connecting these domains."
+  ]
+}

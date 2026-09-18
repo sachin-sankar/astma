@@ -1,0 +1,15 @@
+{
+  "total_freelancers": 10002,
+  "total_high_earners": 1001.0,
+  "high_earner_rate": 0.10007998400319935,
+  "median_earnings": 876.5,
+  "mean_earnings": 37349.72395520896,
+  "std_earnings": 233411.01645835995,
+  "median_hourly_rate": 20.0,
+  "mean_hourly_rate": 24.98402019596081,
+  "median_skills_per_user": 20.0,
+  "mean_skills_per_user": 35.07408518296341,
+  "median_review_count": 1.0,
+  "mean_review_count": 95.8001399720056,
+  "total_unique_skills": 3195
+}
