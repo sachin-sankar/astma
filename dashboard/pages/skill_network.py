@@ -306,9 +306,8 @@ def update_network(selected_comm, color_mode, min_edge_weight):
             line_color="white",
             colorbar=dict(
                 thickness=15,
-                title=color_mode.replace("_", " ").title(),
+                title=dict(text=color_mode.replace("_", " ").title(), side="right"),
                 xanchor="left",
-                titleside="right",
             )
             if show_colorbar
             else None,
