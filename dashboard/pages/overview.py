@@ -1,14 +1,11 @@
 """Overview Page for Skill Bundles and Freelancer Earnings Dashboard."""
 
 import json
-from pathlib import Path
 
 import dash
 import dash_bootstrap_components as dbc
-import numpy as np
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 from dash import dcc, html
 
 from src.common.config import DEFAULT_CONFIG
@@ -140,8 +137,8 @@ def layout():
     )
     fig_earnings.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
+        legend={"orientation": "h", "yanchor": "bottom", "y": 1.02, "xanchor": "right", "x": 1},
     )
 
     # 2. Skills per user histogram
@@ -155,7 +152,7 @@ def layout():
     )
     fig_skills_dist.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
     )
 
     # 3. Top Popular Skills vs Top High-Earning Skills
@@ -172,7 +169,7 @@ def layout():
     )
     fig_popular.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
         coloraxis_showscale=False,
     )
 
@@ -194,7 +191,7 @@ def layout():
     )
     fig_earning_skills.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
         coloraxis_showscale=False,
     )
 

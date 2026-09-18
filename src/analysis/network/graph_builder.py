@@ -8,13 +8,11 @@
 - Precomputes 2D force-directed layout coordinates (Fruchterman-Reingold / Spring layout) with fixed seed for instant visualization.
 """
 
-import json
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 import community as community_louvain
 import duckdb
 import networkx as nx
-import numpy as np
 import pandas as pd
 from loguru import logger
 
@@ -27,7 +25,7 @@ class SkillNetworkAnalyzer:
     def __init__(self, config: PipelineConfig = DEFAULT_CONFIG):
         self.config = config
 
-    def build_network(self) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    def build_network(self) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         """Constructs graph, computes centrality, Louvain communities, and precomputed 2D layout."""
         self.config.ensure_directories()
         con = duckdb.connect()
@@ -106,7 +104,7 @@ class SkillNetworkAnalyzer:
         )
 
         # Construct Nodes DataFrame
-        node_rows: List[Dict[str, Any]] = []
+        node_rows: list[dict[str, Any]] = []
         for node in G.nodes():
             info = meta_dict.get(node, {})
             deg = float(deg_centrality.get(node, 0.0))
@@ -164,7 +162,7 @@ class SkillNetworkAnalyzer:
         )
         return nodes_df, edges_df, comm_summary
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         nodes_df, edges_df, comm_df = self.build_network()
         return {
             "node_count": len(nodes_df),
@@ -173,7 +171,7 @@ class SkillNetworkAnalyzer:
         }
 
 
-def run_network_analysis(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
+def run_network_analysis(config: PipelineConfig = DEFAULT_CONFIG) -> dict[str, Any]:
     analyzer = SkillNetworkAnalyzer(config=config)
     return analyzer.run()
 

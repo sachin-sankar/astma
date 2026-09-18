@@ -6,10 +6,9 @@ Uses DuckDB to calculate:
 """
 
 import json
-from typing import Any, Dict
+from typing import Any
 
 import duckdb
-import numpy as np
 import pandas as pd
 from loguru import logger
 
@@ -24,7 +23,7 @@ class SkillAnalytics:
 
     def compute_overview_and_earnings(
         self, con: duckdb.DuckDBPyConnection
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Computes high-level overview metrics and earnings histogram distribution."""
         freelancers_path = str(self.config.freelancers_parquet)
         skills_path = str(self.config.freelancer_skills_parquet)
@@ -124,7 +123,7 @@ class SkillAnalytics:
         )
         return skill_stats_df
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         self.config.ensure_directories()
         con = duckdb.connect()
         overview = self.compute_overview_and_earnings(con)
@@ -136,7 +135,7 @@ class SkillAnalytics:
         }
 
 
-def run_skill_analytics(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
+def run_skill_analytics(config: PipelineConfig = DEFAULT_CONFIG) -> dict[str, Any]:
     analytics = SkillAnalytics(config=config)
     return analytics.run()
 

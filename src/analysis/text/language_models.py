@@ -8,7 +8,7 @@
 """
 
 import re
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 import duckdb
 import numpy as np
@@ -86,7 +86,7 @@ class ProfileTextAnalyzer:
     def __init__(self, config: PipelineConfig = DEFAULT_CONFIG):
         self.config = config
 
-    def load_corpus(self) -> Tuple[pd.DataFrame, pd.Series, np.ndarray]:
+    def load_corpus(self) -> tuple[pd.DataFrame, pd.Series, np.ndarray]:
         con = duckdb.connect()
         query = f"""
         SELECT 
@@ -208,7 +208,7 @@ class ProfileTextAnalyzer:
         doc_topic_dist = lda.fit_transform(dtm)
 
         # Topic keyword extraction
-        topic_records: List[Dict[str, Any]] = []
+        topic_records: list[dict[str, Any]] = []
         dominant_topics = np.argmax(doc_topic_dist, axis=1)
         df_meta["dominant_topic"] = dominant_topics
 
@@ -259,7 +259,7 @@ class ProfileTextAnalyzer:
         )
         return topics_df
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         self.config.ensure_directories()
         df_meta, cleaned_series, is_high_earner = self.load_corpus()
         terms_df = self.compute_differential_tfidf(cleaned_series, is_high_earner)
@@ -273,7 +273,7 @@ class ProfileTextAnalyzer:
         }
 
 
-def run_text_analysis(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
+def run_text_analysis(config: PipelineConfig = DEFAULT_CONFIG) -> dict[str, Any]:
     analyzer = ProfileTextAnalyzer(config=config)
     return analyzer.run()
 

@@ -1,6 +1,5 @@
-"""Skill Bundles Analysis Page for Dash Application."""
-
 import json
+from typing import Any
 
 import dash
 import dash_bootstrap_components as dbc
@@ -30,15 +29,11 @@ def layout():
 
     # Get unique skills for dropdown filter
     all_skills_list = sorted(
-        list(
-            set(
-                [
-                    skill
-                    for sublist in df["bundle_skills"].apply(json.loads).head(1000)
-                    for skill in sublist
-                ]
-            )
-        )
+        {
+            skill
+            for sublist in df["bundle_skills"].apply(json.loads).head(1000)
+            for skill in sublist
+        }
     )
 
     controls = dbc.Card(
@@ -124,8 +119,8 @@ def layout():
     )
     fig_regression.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
-        yaxis=dict(autorange="reversed"),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
+        yaxis={"autorange": "reversed"},
     )
 
     return html.Div(
@@ -254,11 +249,11 @@ def update_bundles(selected_skill, size_filter, min_count):
     )
     fig_scatter.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=20, b=20),
+        margin={"l": 20, "r": 20, "t": 20, "b": 20},
     )
 
     # Table
-    table_cols = [
+    table_cols: Any = [
         {"name": "Skill Bundle", "id": "bundle_name"},
         {"name": "Size", "id": "bundle_size"},
         {"name": "Count", "id": "freelancer_count"},

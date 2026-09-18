@@ -8,15 +8,15 @@ Computes skill bundle associations using int32 sparse matrices:
 """
 
 import json
-from typing import Any, Dict, List, Set, Tuple
+from typing import Any
 
 import duckdb
 import numpy as np
 import pandas as pd
 import scipy.sparse as sp
-from scipy.stats import chi2
 import statsmodels.api as sm
 from loguru import logger
+from scipy.stats import chi2
 from statsmodels.stats.multitest import multipletests
 
 from src.common.config import DEFAULT_CONFIG, PipelineConfig
@@ -28,7 +28,7 @@ class VectorizedCombinationMiner:
     def __init__(self, config: PipelineConfig = DEFAULT_CONFIG):
         self.config = config
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         self.config.ensure_directories()
         logger.info("Loading tables with DuckDB...")
         con = duckdb.connect()
@@ -106,7 +106,7 @@ class VectorizedCombinationMiner:
         # Build Vectorized Triples for Top Pairs
         logger.info("Mining candidate triples...")
         top_pair_order = np.argsort(-n_bundle_arr)[:300]
-        triple_candidates: Set[Tuple[int, int, int]] = set()
+        triple_candidates: set[tuple[int, int, int]] = set()
 
         for idx in top_pair_order:
             i, j = p_row[idx], p_col[idx]
@@ -253,10 +253,10 @@ class VectorizedCombinationMiner:
         self,
         comb_df: pd.DataFrame,
         user_skill_mat: sp.csr_matrix,
-        valid_skills: List[str],
+        valid_skills: list[str],
         freelancers_df: pd.DataFrame,
         top_n: int = 30,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Runs controlled logistic and OLS regressions for top high-earning skill bundles."""
         logger.info(f"Running controlled regressions for top {top_n} bundles...")
         skill_to_idx = {s: i for i, s in enumerate(valid_skills)}
@@ -271,7 +271,7 @@ class VectorizedCombinationMiner:
         country_cols = [f"country_{c}" for c in top_countries]
         base_covars = ["skill_count", "log_reviews"] + country_cols
 
-        regression_results: List[Dict[str, Any]] = []
+        regression_results: list[dict[str, Any]] = []
         top_bundles = comb_df.head(top_n)
 
         for _, row in top_bundles.iterrows():
@@ -300,7 +300,7 @@ class VectorizedCombinationMiner:
                 controlled_or = float(np.exp(bundle_coef))
                 ci_low = float(np.exp(bundle_coef - 1.96 * bundle_se))
                 ci_high = float(np.exp(bundle_coef + 1.96 * bundle_se))
-            except Exception as e:
+            except (ValueError, TypeError, np.linalg.LinAlgError) as e:
                 logger.warning(f"Logit failed for bundle {row['bundle_name']}: {e}")
                 controlled_or = float(row["odds_ratio"])
                 ci_low = float(row["ci_lower"])
@@ -313,7 +313,7 @@ class VectorizedCombinationMiner:
                 ols_coef = float(ols_model.params["bundle_dummy"])
                 ols_pval = float(ols_model.pvalues["bundle_dummy"])
                 ols_r2 = float(ols_model.rsquared)
-            except Exception as e:
+            except (ValueError, TypeError, np.linalg.LinAlgError) as e:
                 logger.warning(f"OLS failed for bundle {row['bundle_name']}: {e}")
                 ols_coef = 0.0
                 ols_pval = 1.0
@@ -347,7 +347,7 @@ class VectorizedCombinationMiner:
         return output_data
 
 
-def run_combination_analysis(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
+def run_combination_analysis(config: PipelineConfig = DEFAULT_CONFIG) -> dict[str, Any]:
     miner = VectorizedCombinationMiner(config=config)
     return miner.run()
 

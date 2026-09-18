@@ -8,10 +8,9 @@
 - Saves output to `data/analytical/geographic_statistics.parquet`.
 """
 
-from typing import Any, Dict, List
+from typing import Any
 
 import duckdb
-import pandas as pd
 from loguru import logger
 
 from src.common.config import DEFAULT_CONFIG, PipelineConfig
@@ -23,7 +22,7 @@ class GeographicAnalyzer:
     def __init__(self, config: PipelineConfig = DEFAULT_CONFIG):
         self.config = config
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         self.config.ensure_directories()
         con = duckdb.connect()
 
@@ -120,7 +119,7 @@ class GeographicAnalyzer:
         }
 
 
-def run_geographic_analysis(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
+def run_geographic_analysis(config: PipelineConfig = DEFAULT_CONFIG) -> dict[str, Any]:
     analyzer = GeographicAnalyzer(config=config)
     return analyzer.run()
 

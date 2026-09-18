@@ -4,7 +4,7 @@ import dash
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.express as px
-from dash import Input, Output, callback, dash_table, dcc, html
+from dash import dcc, html
 
 from src.common.config import DEFAULT_CONFIG
 
@@ -42,7 +42,7 @@ def layout():
     )
     fig_high_terms.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
         coloraxis_showscale=False,
     )
 
@@ -66,7 +66,7 @@ def layout():
     )
     fig_non_high_terms.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
         coloraxis_showscale=False,
     )
 
@@ -86,7 +86,7 @@ def layout():
     )
     fig_topics.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
     )
 
     # Topic Cards

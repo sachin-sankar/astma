@@ -10,27 +10,23 @@ Handles deduplication, missing values, and schema standardization.
 """
 
 import json
-from dataclasses import dataclass
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any
 
 import numpy as np
 import pandas as pd
-import pyarrow as pa
-import pyarrow.parquet as pq
 from loguru import logger
 
 from src.common.config import DEFAULT_CONFIG, PipelineConfig
 
 
-def _clean_str(val: Any) -> Optional[str]:
+def _clean_str(val: Any) -> str | None:
     if val is None:
         return None
     s = str(val).strip()
     return s if len(s) > 0 else None
 
 
-def _clean_float(val: Any) -> Optional[float]:
+def _clean_float(val: Any) -> float | None:
     if val is None:
         return None
     try:
@@ -55,13 +51,13 @@ class IngestionPipeline:
     def __init__(self, config: PipelineConfig = DEFAULT_CONFIG):
         self.config = config
 
-    def extract_records(self) -> Tuple[Dict[str, Dict[str, Any]], List[Dict[str, Any]]]:
+    def extract_records(self) -> tuple[dict[str, dict[str, Any]], list[dict[str, Any]]]:
         """Reads raw files and deduplicates by user_id keeping the record with highest earnings or latest information."""
         raw_files = sorted(self.config.raw_json_dir.glob("*.json"))
         logger.info(f"Ingesting {len(raw_files)} raw JSON files...")
 
-        user_records: Dict[str, Dict[str, Any]] = {}
-        conflicts: List[Dict[str, Any]] = []
+        user_records: dict[str, dict[str, Any]] = {}
+        conflicts: list[dict[str, Any]] = []
 
         for fp in raw_files:
             try:
@@ -92,23 +88,21 @@ class IngestionPipeline:
                                 _clean_float(existing.get("total_earnings")) or 0.0
                             )
                             new_earn = _clean_float(rec.get("total_earnings")) or 0.0
-                            if new_earn > existing_earn:
+                            if new_earn > existing_earn or (
+                                new_earn == existing_earn
+                                and len(rec.get("skills") or [])
+                                > len(existing.get("skills") or [])
+                            ):
                                 user_records[uid] = rec
-                            elif new_earn == existing_earn:
-                                # Break tie on skills count
-                                if len(rec.get("skills") or []) > len(
-                                    existing.get("skills") or []
-                                ):
-                                    user_records[uid] = rec
                         else:
                             user_records[uid] = rec
-            except Exception as e:
+            except (json.JSONDecodeError, OSError, ValueError) as e:
                 logger.warning(f"Error reading {fp}: {e}")
 
         logger.info(f"Deduplicated to {len(user_records)} unique freelancer profiles.")
         return user_records, conflicts
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         self.config.ensure_directories()
         user_records, conflicts = self.extract_records()
 
@@ -139,10 +133,10 @@ class IngestionPipeline:
         )
 
         # 2. Build Tables
-        freelancers_rows: List[Dict[str, Any]] = []
-        skills_rows: List[Dict[str, Any]] = []
-        text_rows: List[Dict[str, Any]] = []
-        portfolio_rows: List[Dict[str, Any]] = []
+        freelancers_rows: list[dict[str, Any]] = []
+        skills_rows: list[dict[str, Any]] = []
+        text_rows: list[dict[str, Any]] = []
+        portfolio_rows: list[dict[str, Any]] = []
 
         for uid, rec in user_records.items():
             username = _clean_str(rec.get("username")) or uid
@@ -168,7 +162,7 @@ class IngestionPipeline:
             # User skills processing
             skills = rec.get("skills") or []
             user_skill_count = 0
-            seen_skill_names_for_user: Set[str] = set()
+            seen_skill_names_for_user: set[str] = set()
 
             if isinstance(skills, list):
                 for s in skills:
@@ -219,7 +213,7 @@ class IngestionPipeline:
 
             # Portfolios
             portfolios = rec.get("portfolios") or []
-            port_texts: List[str] = []
+            port_texts: list[str] = []
             if isinstance(portfolios, list):
                 for idx, p in enumerate(portfolios):
                     if not isinstance(p, dict):
@@ -281,7 +275,7 @@ class IngestionPipeline:
         return report
 
 
-def run_ingestion(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
+def run_ingestion(config: PipelineConfig = DEFAULT_CONFIG) -> dict[str, Any]:
     pipeline = IngestionPipeline(config=config)
     return pipeline.run()
 

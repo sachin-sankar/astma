@@ -4,7 +4,7 @@ import dash
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.express as px
-from dash import Input, Output, callback, dash_table, dcc, html
+from dash import dash_table, dcc, html
 
 from src.common.config import DEFAULT_CONFIG
 
@@ -42,10 +42,10 @@ def layout():
     )
     fig_map.update_layout(
         template="plotly_white",
-        margin=dict(l=0, r=0, t=40, b=0),
-        geo=dict(
-            showframe=False, showcoastlines=True, projection_type="equirectangular"
-        ),
+        margin={"l": 0, "r": 0, "t": 40, "b": 0},
+        geo={
+            "showframe": False, "showcoastlines": True, "projection_type": "equirectangular"
+        },
     )
 
     # Top Countries Bar Chart
@@ -62,7 +62,7 @@ def layout():
     )
     fig_top_countries.update_layout(
         template="plotly_white",
-        margin=dict(l=20, r=20, t=40, b=20),
+        margin={"l": 20, "r": 20, "t": 40, "b": 20},
     )
 
     # City Table for Top Countries

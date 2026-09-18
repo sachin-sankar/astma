@@ -4,7 +4,6 @@ import dash
 import dash_bootstrap_components as dbc
 import numpy as np
 import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 from dash import Input, Output, callback, dash_table, dcc, html
 
@@ -23,7 +22,7 @@ def load_network_data():
 
 
 def layout():
-    nodes_df, edges_df, comm_df = load_network_data()
+    nodes_df, _edges_df, comm_df = load_network_data()
 
     community_options = [{"label": "All Communities", "value": "all"}] + [
         {"label": f"Community {cid}: {row['top_skills']}", "value": int(cid)}
@@ -258,7 +257,7 @@ def update_network(selected_comm, color_mode, min_edge_weight):
     edge_trace = go.Scatter(
         x=edge_x,
         y=edge_y,
-        line=dict(width=0.6, color="#bdc3c7"),
+        line={"width": 0.6, "color": "#bdc3c7"},
         hoverinfo="none",
         mode="lines",
     )
@@ -307,23 +306,23 @@ def update_network(selected_comm, color_mode, min_edge_weight):
         hoverinfo="text",
         text=node_names,
         textposition="top center",
-        textfont=dict(size=9, color="#2c3e50"),
+        textfont={"size": 9, "color": "#2c3e50"},
         hovertext=hover_texts,
-        marker=dict(
-            showscale=show_colorbar,
-            colorscale=colorscale,
-            color=color_vals,
-            size=node_sizes,
-            line_width=1.5,
-            line_color="white",
-            colorbar=dict(
-                thickness=15,
-                title=dict(text=color_mode.replace("_", " ").title(), side="right"),
-                xanchor="left",
-            )
+        marker={
+            "showscale": show_colorbar,
+            "colorscale": colorscale,
+            "color": color_vals,
+            "size": node_sizes,
+            "line_width": 1.5,
+            "line_color": "white",
+            "colorbar": {
+                "thickness": 15,
+                "title": {"text": color_mode.replace("_", " ").title(), "side": "right"},
+                "xanchor": "left",
+            }
             if show_colorbar
             else None,
-        ),
+        },
     )
 
     fig = go.Figure(
@@ -331,9 +330,9 @@ def update_network(selected_comm, color_mode, min_edge_weight):
         layout=go.Layout(
             showlegend=False,
             hovermode="closest",
-            margin=dict(b=10, l=10, r=10, t=10),
-            xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+            margin={"b": 10, "l": 10, "r": 10, "t": 10},
+            xaxis={"showgrid": False, "zeroline": False, "showticklabels": False},
+            yaxis={"showgrid": False, "zeroline": False, "showticklabels": False},
             plot_bgcolor="white",
             paper_bgcolor="white",
         ),

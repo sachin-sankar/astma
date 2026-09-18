@@ -5,10 +5,9 @@ into a cohesive structured JSON summary (`data/analytical/integrated_insights.js
 """
 
 import json
-from typing import Any, Dict
+from typing import Any
 
 import duckdb
-import pandas as pd
 from loguru import logger
 
 from src.common.config import DEFAULT_CONFIG, PipelineConfig
@@ -20,12 +19,12 @@ class IntegratedInsightsGenerator:
     def __init__(self, config: PipelineConfig = DEFAULT_CONFIG):
         self.config = config
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         self.config.ensure_directories()
         con = duckdb.connect()
 
         # 1. Overview
-        overview = con.execute(
+        con.execute(
             f"SELECT * FROM read_parquet('{self.config.freelancers_parquet}') LIMIT 1"
         ).fetchdf()
         with open(self.config.overview_metrics_json, "r", encoding="utf-8") as f:
@@ -160,7 +159,7 @@ class IntegratedInsightsGenerator:
         return integrated_data
 
 
-def run_integrated_insights(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
+def run_integrated_insights(config: PipelineConfig = DEFAULT_CONFIG) -> dict[str, Any]:
     generator = IntegratedInsightsGenerator(config=config)
     return generator.run()
 

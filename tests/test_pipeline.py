@@ -1,21 +1,17 @@
 """Pytest test suite covering profiling, ingestion, analytics, combinations, network, NLP, and artifacts."""
 
 import json
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import pytest
-import scipy.sparse as sp
 
-from src.common.config import DEFAULT_CONFIG, PipelineConfig
-from src.profiling.profiler import ProfilingAccumulator
+from src.common.config import DEFAULT_CONFIG
 from src.ingestion.pipeline import (
     _clean_float,
     _clean_int,
     _clean_str,
-    IngestionPipeline,
 )
+from src.profiling.profiler import ProfilingAccumulator
 
 
 def test_clean_helpers():

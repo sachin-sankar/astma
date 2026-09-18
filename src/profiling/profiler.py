@@ -6,9 +6,7 @@ Generates comprehensive single-pass dataset profiling artifacts.
 
 import json
 from collections import Counter
-
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -17,7 +15,7 @@ from loguru import logger
 from src.common.config import DEFAULT_CONFIG, PipelineConfig
 
 
-def _safe_float(val: Any) -> Optional[float]:
+def _safe_float(val: Any) -> float | None:
     if val is None:
         return None
     try:
@@ -27,7 +25,7 @@ def _safe_float(val: Any) -> Optional[float]:
         return None
 
 
-def _safe_str(val: Any) -> Optional[str]:
+def _safe_str(val: Any) -> str | None:
     if val is None:
         return None
     s = str(val).strip()
@@ -41,15 +39,15 @@ class ProfilingAccumulator:
         self.total_files = 0
         self.malformed_files = 0
         self.total_records = 0
-        self.user_ids_seen: Set[str] = set()
+        self.user_ids_seen: set[str] = set()
         self.duplicate_user_ids = 0
 
         # Field completeness
         self.field_presence_counts: Counter[str] = Counter()
 
         # Earnings
-        self.earnings_list: List[float] = []
-        self.hourly_rates_list: List[float] = []
+        self.earnings_list: list[float] = []
+        self.hourly_rates_list: list[float] = []
         self.zero_earnings_count = 0
         self.missing_earnings_count = 0
         self.zero_rate_count = 0
@@ -57,8 +55,8 @@ class ProfilingAccumulator:
 
         # Skills
         self.skills_counter: Counter[str] = Counter()
-        self.user_skill_counts: List[int] = []
-        self.unique_skill_ids: Set[int] = set()
+        self.user_skill_counts: list[int] = []
+        self.unique_skill_ids: set[int] = set()
         self.all_skills_counter: Counter[str] = (
             Counter()
         )  # includes is_user_skill == False
@@ -69,12 +67,12 @@ class ProfilingAccumulator:
         self.coordinates_present_count = 0
 
         # Profile text
-        self.profile_text_lengths: List[int] = []
+        self.profile_text_lengths: list[int] = []
         self.tagline_present_count = 0
         self.portfolios_present_count = 0
         self.portfolio_items_count = 0
 
-    def process_record(self, rec: Dict[str, Any]) -> None:
+    def process_record(self, rec: dict[str, Any]) -> None:
         self.total_records += 1
 
         uid = _safe_str(rec.get("user_id"))
@@ -155,7 +153,7 @@ class ProfilingAccumulator:
             self.portfolio_items_count += len(portfolios)
 
 
-def run_profiling(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
+def run_profiling(config: PipelineConfig = DEFAULT_CONFIG) -> dict[str, Any]:
     """Runs single-pass dataset profiling across all raw json files."""
     config.ensure_directories()
     raw_files = sorted(config.raw_json_dir.glob("*.json"))
@@ -175,7 +173,7 @@ def run_profiling(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
                             accum.process_record(rec)
                 elif isinstance(data, dict):
                     accum.process_record(data)
-        except Exception as e:
+        except (json.JSONDecodeError, OSError, ValueError) as e:
             accum.malformed_files += 1
             logger.warning(f"Malformed JSON file {fp}: {e}")
 
@@ -188,9 +186,7 @@ def run_profiling(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
         if accum.hourly_rates_list
         else np.array([0.0])
     )
-    skills_cnt_arr = (
-        np.array(accum.user_skill_counts) if accum.user_skill_counts else np.array([0])
-    )
+    (np.array(accum.user_skill_counts) if accum.user_skill_counts else np.array([0]))
     text_len_arr = (
         np.array(accum.profile_text_lengths)
         if accum.profile_text_lengths
@@ -213,7 +209,7 @@ def run_profiling(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
     }
 
     earnings_summary = {
-        "count_present": int(len(earnings_arr)),
+        "count_present": len(earnings_arr),
         "count_missing": accum.missing_earnings_count,
         "count_zero": accum.zero_earnings_count,
         "pct_zero_or_missing": round(
@@ -234,7 +230,7 @@ def run_profiling(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
         "p99": float(np.percentile(earnings_arr, 99)),
         "iqr": float(np.percentile(earnings_arr, 75) - np.percentile(earnings_arr, 25)),
         "hourly_rates": {
-            "count_present": int(len(hourly_arr)),
+            "count_present": len(hourly_arr),
             "count_missing": accum.missing_rate_count,
             "count_zero": accum.zero_rate_count,
             "min": float(np.min(hourly_arr)),
@@ -248,7 +244,7 @@ def run_profiling(config: PipelineConfig = DEFAULT_CONFIG) -> Dict[str, Any]:
     }
 
     text_summary = {
-        "profiles_with_text": int(len(text_len_arr)),
+        "profiles_with_text": len(text_len_arr),
         "pct_profiles_with_text": round(
             100.0 * len(text_len_arr) / max(accum.total_records, 1), 2
         ),
