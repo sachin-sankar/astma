@@ -1,0 +1,52 @@
+@startuml
+title Proposed Analytical Model — Layered Architecture
+top to bottom direction
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 14
+skinparam packageStyle rectangle
+
+package "1. Acquisition and profiling" {
+  component "Offset-based\nprofile collector" as collector
+  component "Streaming profiler\nand quality summaries" as profiler
+}
+package "2. Preparation and storage" {
+  component "Cleaning + deduplication\n90th-percentile label" as cleaning
+  database "Normalized Parquet tables" as normalized
+}
+package "3. Analytical services" {
+  component "Baseline metrics" as base
+  component "Bundle mining +\nregression" as bundle
+  component "Skill graph +\ncommunity detection" as graph
+  component "TF–IDF + LDA" as nlp
+  component "Country/city\naggregation" as geography
+  component "Integrated insight\nbuilder" as integration
+}
+package "4. Presentation" {
+  component "Dash / Plotly UI\nOverview" as p1
+  component "Skill Bundles" as p2
+  component "Skill Network" as p3
+  component "Profile Language" as p4
+  component "Geography" as p5
+}
+collector --> profiler
+profiler --> cleaning
+cleaning --> normalized
+normalized --> base
+normalized --> bundle
+normalized --> graph
+normalized --> nlp
+normalized --> geography
+base --> integration
+bundle --> integration
+graph --> integration
+nlp --> integration
+geography --> integration
+base --> p1
+bundle --> p2
+graph --> p3
+nlp --> p4
+geography --> p5
+integration --> p1
+@enduml

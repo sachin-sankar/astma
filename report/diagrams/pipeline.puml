@@ -1,0 +1,44 @@
+@startuml
+title Freelancer Skill Bundles — Data Pipeline
+left to right direction
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 14
+skinparam packageStyle rectangle
+
+rectangle "Freelancer.in\nDirectory endpoint" as source
+rectangle "collection.py\nOffset-based JSON files" as collect
+rectangle "Profiling\nField coverage, distributions,\nduplicates, data quality" as profile
+rectangle "Ingestion and cleaning\nNormalize fields, deduplicate,\nderive high-earner label" as ingest
+database "Normalized Parquet\nfreelancers / skills /\nprofile text / portfolios" as parquet
+
+package "Analytical stages" {
+  rectangle "Baseline skill\nstatistics" as baseline
+  rectangle "Skill bundles\nsupport, lift, OR, FDR,\ncontrolled regression" as bundles
+  rectangle "Skill network\ncentrality + Louvain" as network
+  rectangle "Profile text\nTF–IDF + LDA" as text
+  rectangle "Geography\ncountry + city" as geo
+}
+database "Analytical artifacts\nParquet + JSON" as artifacts
+rectangle "Integrated insights\ngenerator" as insights
+rectangle "Dash dashboard\n5 interactive pages" as dash
+
+source --> collect
+collect --> profile
+profile --> ingest
+ingest --> parquet
+parquet --> baseline
+parquet --> bundles
+parquet --> network
+parquet --> text
+parquet --> geo
+baseline --> artifacts
+bundles --> artifacts
+network --> artifacts
+text --> artifacts
+geo --> artifacts
+artifacts --> insights
+insights --> artifacts
+artifacts --> dash
+@enduml

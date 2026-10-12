@@ -1,0 +1,22 @@
+@startuml
+title Dashboard Modules and Their Evidence
+left to right direction
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam defaultFontName "Times New Roman"
+skinparam defaultFontSize 14
+
+database "Precomputed JSON + Parquet\nanalytical artifacts" as data
+package "Interactive Dash application" {
+  rectangle "Overview\nKPIs, earnings distribution,\nskill prevalence" as overview
+  rectangle "Skill Bundles\nfilters, lift, odds ratios,\nconfidence intervals, FDR" as bundles
+  rectangle "Skill Network\nco-occurrence graph,\ncommunities, bridge skills" as network
+  rectangle "Profile Language\ndifferential TF–IDF,\neight LDA topics" as language
+  rectangle "Geography\ncountry map, rankings,\nmetropolitan table" as geography
+}
+data --> overview
+data --> bundles
+data --> network
+data --> language
+data --> geography
+@enduml
